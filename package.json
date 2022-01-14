@@ -1,0 +1,49 @@
+{
+  "name": "ezdota-ui",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~12.2.12",
+    "@angular/common": "~12.2.12",
+    "@angular/compiler": "~12.2.12",
+    "@angular/core": "~12.2.12",
+    "@angular/forms": "~12.2.12",
+    "@angular/platform-browser": "~12.2.12",
+    "@angular/platform-browser-dynamic": "~12.2.12",
+    "@angular/router": "~12.2.12",
+    "@auth0/auth0-angular": "^1.8.0",
+    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "@types/jquery": "^3.5.8",
+    "angular-bootstrap-toasts": "^1.2.0",
+    "auth0": "^2.37.0",
+    "bignumber": "^1.1.0",
+    "bootstrap": "^4.6.1",
+    "jquery": "^3.6.0",
+    "ngb-toast": "0.0.6",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.2.0",
+    "util": "^0.12.4",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~12.1.1",
+    "@angular/cli": "~12.1.1",
+    "@angular/compiler-cli": "~12.2.12",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^12.20.37",
+    "jasmine-core": "~3.7.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "typescript": "~4.3.2"
+  }
+}

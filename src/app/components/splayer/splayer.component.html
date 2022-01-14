@@ -1,0 +1,65 @@
+<div class="row justify-content-center" style="margin-top: 1rem">
+    <form class="input-group input-group-lg">
+        <input type="text" class="form-control input-lg" name="input" placeholder="Enter Steam ID"
+            [(ngModel)]="steamid">
+        <span class="input-group-btn">
+            <form class="form-inline">
+                <button id="submitButton" class="btn btn-outline-light" type="submit" (click)="onSubmit()"
+                    style="margin-left: 1rem;">Submit</button>
+            </form>
+        </span>
+    </form>
+    <div *ngIf="isPlayer == true" class="row justify-content-center" style="margin-top: 3rem">
+        <div class="col-sm text-center">
+            <img *ngIf="splayer" style ="padding-bottom: 1rem; width: 15rem;"src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/{{splayer.avatar}}">
+            <br>
+            <h1 id="playerName" *ngIf="splayer.name != undefined">{{splayer.name}}</h1>
+            <p id="playerId" *ngIf="splayer.id != undefined">Steam ID: {{splayer.id}}</p>
+            <p id="realName" *ngIf="splayer.realName != undefined">Real Name: {{splayer.realName}}</p>
+        </div>
+
+        <div class="col-sm text-center">
+            <h3 id="recentDetails">Most recent match details:</h3>
+            <p id="matchId" *ngIf="match.id != undefined && match.id != '0'">The match id was {{match.id}}.</p>
+            <p id="startTime" *ngIf="match.startTime != undefined && match.startTime != '0'">The match started on
+                {{match.startTime}}.
+            </p>
+            <p id="matchDuration" *ngIf="match.durationSeconds != undefined && match.durationSeconds != '0'">It lasted
+                {{ (match.durationSeconds / 60).toFixed(2) }} minutes.</p>
+            <p id="hero" *ngIf="hero.displayName">You played {{hero.displayName}} <img style="width: 2rem" src="assets/heroes/{{hero.displayName}}.png">.</p>
+            <p id="radiant" *ngIf="match.radiant == true; else elseBlock">You were Radiant <img style="width: 2rem"*ngIf="hero.displayName" src="assets/Radiant_icon.png">.</p>
+            <p>
+                <ng-template #elseBlock>
+                    <p id="dire">You were Dire <img style="width: 2rem" src="assets/Dire_icon.png">.</p>
+                </ng-template>
+            </p>
+            <p id="firstBloodTime">First blood was achieved at {{ (match.firstBloodTime / 60).toFixed(2) }} minutes.</p>
+            <p id="matchVictory" *ngIf="match.players && match.players[0].isVictory == true; else elseBlock2">You won.
+            </p>
+            <p>
+                <ng-template #elseBlock2>
+                    <p id="lost">You lost.</p>
+                </ng-template>
+            </p>
+            <p id="goldLead" *ngIf="match.largestGoldLeadTeam != undefined && match.largestGoldLead != '0'">
+                {{match.largestGoldLeadTeam}} had the highest gold
+                lead of
+                {{match.largestGoldLead}} gold.</p>
+            <p id="xpLead" *ngIf="match.largestXpLeadTeam != undefined && match.largestXpLead != '0'">
+                {{match.largestXpLeadTeam}} had the highest
+                experience
+                lead
+                of {{match.largestXpLead}} experience.</p>
+            <p id="deaths" *ngIf="match.deaths != undefined">You died {{match.deaths}} times.</p>
+            <p id="feed" *ngIf="match.deaths > 10">You fed.</p>
+        </div>
+    </div>
+    <img id="protractor" *ngIf="isPlayer == false" src="favicon.ico" style="padding-top: 2rem; padding-bottom: 1rem; width: 15rem;">
+</div>
+<div *ngIf="isPlayer == true && data != null">
+    <div class="row justify-content-center" style="margin-top: 3rem">
+        <button id="saveMatchButton" class="btn btn-outline-light" type="submit" (click)="onSubmit2()"
+            style="width: 10rem;">Save
+            Match</button>
+    </div>
+</div>

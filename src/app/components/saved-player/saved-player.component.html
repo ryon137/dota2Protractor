@@ -1,0 +1,49 @@
+<div class="row justify-content-center" style="margin-top: 1rem">
+    <h3 id="userDetails">All Saved Matches</h3>
+</div>
+
+<div id="submitButton" class="matches" *ngFor="let match of matchArray" (click)="onClick()">
+    <p id="matchLabel">Match {{match.id}}</p>
+    <div class="row justify-content-center" style="margin-top: 1rem" *ngIf="isPlayer == true">
+
+        <div class="row justify-content-center" style="margin-top: 1rem">
+
+            <div class="col-sm text-center">
+                <p id="startTime" *ngIf="match.startTime != undefined && match.startTime != '0'">The match started
+                    on
+                    {{match.startTime}}.
+                </p>
+                <p id="matchDuration" *ngIf="match.durationSeconds != undefined && match.durationSeconds != '0'">It
+                    lasted
+                    {{ (match.durationSeconds / 60).toFixed(2) }} minutes.</p>
+                <p id="hero" *ngIf="match.heroes != 0">You played {{ match.heroes }} <img style="width: 2rem"*ngIf="match.heroes" src="assets/heroes/{{match.heroes}}.png">.</p>
+                <p id="radiant" *ngIf="match.radiant == true; else elseBlock">You were Radiant <img style="width: 2rem" src="assets/Radiant_icon.png">.</p>
+                <p>
+                    <ng-template #elseBlock>
+                        <p id="dire">You were Dire <img style="width: 2rem" src="assets/Dire_icon.png">.</p>
+                    </ng-template>
+                </p>
+                <p id="firstBloodTime">First blood was achieved at {{ (match.firstBloodTime / 60).toFixed(2) }}
+                    minutes.
+                </p>
+                <p id="matchVictory" *ngIf="match.victory == true; else elseBlock2">You won.</p>
+                <p>
+                    <ng-template #elseBlock2>
+                        <p id="lost">You lost.</p>
+                    </ng-template>
+                </p>
+                <p id="goldLead" *ngIf="match.largestGoldLeadTeam != undefined && match.largestGoldLead != '0'">
+                    {{match.largestGoldLeadTeam}} had the highest gold
+                    lead of
+                    {{match.largestGoldLead}} gold.</p>
+                <p id="xpLead" *ngIf="match.largestXpLeadTeam != undefined && match.largestXpLead != '0'">
+                    {{match.largestXpLeadTeam}} had the highest
+                    experience
+                    lead
+                    of {{match.largestXpLead}} experience.</p>
+                <p id="deaths" *ngIf="match.deaths != undefined">You died {{match.deaths}} times.</p>
+                <p id="feed" *ngIf="match.deaths > 10">You fed.</p>
+            </div>
+        </div>
+    </div>
+</div>
