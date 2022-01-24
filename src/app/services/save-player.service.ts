@@ -16,7 +16,7 @@ export class SavePlayerService {
   //endpoint: string = 'http://ryonbackend-env.eba-pbjsc7zw.us-east-2.elasticbeanstalk.com';
   //endpoint: string = 'http://localhost:8000';
   //endpoint: string = 'http://localhost:3306';
-  endpoint: string = 'http://protractorbackend-env.eba-3jtcbg8v.us-east-2.elasticbeanstalk.com';
+  endpoint: string = 'https://dota2-protractor-backend.de';
 
   postHeader =  {
     headers: new HttpHeaders({
