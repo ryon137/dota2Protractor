@@ -11,7 +11,7 @@
     </form>
     <div *ngIf="isPlayer == true" class="row justify-content-center" style="margin-top: 3rem">
         <div class="col-sm text-center">
-            <img *ngIf="splayer" style ="padding-bottom: 1rem; width: 15rem;"src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/{{splayer.avatar}}">
+            <img *ngIf="splayer" style ="padding-bottom: 1rem; width: 15rem;"src="{{splayer.avatar}}">
             <br>
             <h1 id="playerName" *ngIf="splayer.name != undefined">{{splayer.name}}</h1>
             <p id="playerId" *ngIf="splayer.id != undefined">Steam ID: {{splayer.id}}</p>
